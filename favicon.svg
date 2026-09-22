@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="8" fill="#4d6240"/><text x="9" y="29" font-family="Georgia,serif" font-size="32" font-style="italic" fill="#f5f3ec">z</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="zab logo">
+  <rect x="1" y="1" width="62" height="62" rx="15" fill="#0b192d" stroke="#60dec4" stroke-width="2"/>
+  <text x="5" y="41" fill="#d5dff2" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" letter-spacing="-2.5">zab</text>
+  <circle cx="57" cy="40" r="3.2" fill="#60dec4"/>
+</svg>
