@@ -15,7 +15,39 @@
 .skip{background:var(--green);color:var(--paper)}
 @media(min-width:901px){.hero-grid{grid-template-columns:1fr 340px}}
 @media(max-width:600px){.header-actions{gap:14px}nav{gap:16px}.portrait{width:215px;margin-top:-10px}.photo img{height:auto}.masthead .wordmark{font-size:31px}}
+
+/* Particle Drift-inspired site background, adapted to the existing vanilla site. */
+body{overflow-x:hidden}
+.code-field{position:fixed;inset:0;z-index:0;display:block;width:100%;height:100%;opacity:.72;pointer-events:none}
+body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(11,25,45,.72) 0%,rgba(11,25,45,.43) 42%,rgba(11,25,45,.2) 72%,rgba(11,25,45,.38) 100%),linear-gradient(0deg,rgba(11,25,45,.38),transparent 38%,rgba(11,25,45,.12))}
+body>.skip,body>.masthead,body>main,body>.footer{position:relative;z-index:2}
+.about-section{width:calc(100% - clamp(24px,5vw,64px));margin-inline:auto;background:rgba(16,33,55,.9);border:1px solid rgba(96,222,196,.08);border-radius:8px;box-shadow:0 30px 80px rgba(2,9,20,.48),0 -16px 50px rgba(2,9,20,.2),inset 0 1px rgba(213,223,242,.035);backdrop-filter:blur(2px)}
+@media(max-width:600px){.code-field{opacity:.5}body::before{background:linear-gradient(90deg,rgba(11,25,45,.76),rgba(11,25,45,.38)),linear-gradient(0deg,rgba(11,25,45,.48),transparent 44%)}.about-section{width:calc(100% - 24px);border-radius:5px;box-shadow:0 22px 54px rgba(2,9,20,.46),0 -10px 30px rgba(2,9,20,.18)}}
+@media(prefers-reduced-motion:reduce){.code-field{opacity:.34}}
 @media(max-width:360px){nav{gap:10px}.header-actions{gap:10px}.hero h1{font-size:74px}}
+
+/* Compact project cards keep the work section dense and easy to scan. */
+.project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:14px;margin:8px 0 42px}
+.project-grid .project{position:relative;display:flex;flex-direction:column;min-width:0;min-height:430px;padding:27px 25px 24px;border:1px solid rgba(96,222,196,.09);border-radius:14px;background:rgba(16,33,55,.86);box-shadow:0 16px 38px rgba(2,9,20,.22),inset 0 1px rgba(213,223,242,.025);overflow:hidden;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.project-grid .project::after{content:"";position:absolute;inset:auto -45px -70px auto;width:150px;height:150px;border-radius:50%;background:rgba(96,222,196,.035);filter:blur(4px);pointer-events:none}
+.project-grid .project:hover{transform:translateY(-4px);border-color:rgba(96,222,196,.22);box-shadow:0 23px 48px rgba(2,9,20,.32),inset 0 1px rgba(213,223,242,.035)}
+.project-grid .project-index{display:flex;align-items:center;gap:10px;width:max-content;height:27px;padding:0 54px 0 0;color:var(--muted);font-size:10px;line-height:1}
+.project-grid .project-folder-icon{display:block;width:27px;height:27px;color:var(--green)}
+.project-grid .project-body{display:flex;flex:1;flex-direction:column;min-width:0;padding-top:23px}
+.project-grid .project-kicker{min-height:30px;font-size:9px;line-height:1.55;letter-spacing:.85px}
+.project-grid h3{font-size:23px;line-height:1.25;letter-spacing:-.45px;margin:10px 0 11px}
+.project-grid .project-body>p{font-size:14px;line-height:1.65;margin:0 0 20px}
+.project-grid .tags{gap:7px 14px;margin:auto 0 0;padding-top:8px;font-size:11px;line-height:1.45}
+.project-grid .project-link{position:absolute;z-index:2;top:21px;right:21px;width:38px;height:38px;padding:0;display:grid;place-items:center;color:var(--ink);transition:color .2s,transform .2s}
+.project-grid .project-link>span:first-child{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.project-grid .project-link>span:last-child{display:block;width:auto;height:auto;border:0;border-radius:0;font-size:19px;line-height:1}
+.project-grid .project-link svg{display:block;width:20px;height:20px}
+.project-grid .project-link:hover{transform:translate(2px,-2px);color:var(--green)}
+.project-grid .project-link:hover>span:last-child{background:transparent}
+.project-grid+.work-footer{padding-top:22px}
+@media(max-width:960px){.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.project-grid .project{min-height:410px}}
+@media(max-width:620px){.project-grid{grid-template-columns:1fr;gap:12px;margin-top:2px;margin-bottom:30px}.project-grid .project{min-height:0;padding:24px 21px 22px;border-radius:11px}.project-grid .project-body{padding-top:20px}.project-grid .project-kicker{min-height:0;padding-right:24px}.project-grid h3{font-size:24px}.project-grid .project-link{top:18px;right:18px}.project-grid+.work-footer{padding-top:18px}}
+
 /* Interactive portrait; the image remains an accessible, no-JS fallback. */
 .photo{position:relative;touch-action:pan-y}
 .photo canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;pointer-events:none}
