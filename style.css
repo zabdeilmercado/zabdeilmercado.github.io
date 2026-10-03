@@ -58,3 +58,9 @@ body>.skip,body>.masthead,body>main,body>.footer{position:relative;z-index:2}
 .photo.particles-ready:not(.motion-reduced){cursor:crosshair}
 .portrait-scatter{display:block;margin:4px auto 0;padding:10px 4px;background:none;border:0;border-bottom:1px solid var(--line);color:var(--green);font:12px var(--sans);cursor:pointer;min-height:44px}
 .portrait-scatter[hidden]{display:none}.portrait-scatter:hover{border-color:var(--green)}.portrait-scatter:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+
+/* Keep the About content in the page without a separate panel around it. */
+.about-section{width:100%;margin-inline:0;background:transparent;border:0;border-radius:0;box-shadow:none;backdrop-filter:none}
+.about-section>.about-grid{width:min(1180px,calc(100% - 112px));padding-inline:0}
+@media(max-width:900px){.about-section>.about-grid{width:calc(100% - 64px)}}
+@media(max-width:600px){.about-section{width:100%;border-radius:0;box-shadow:none}.about-section>.about-grid{width:calc(100% - 40px);padding-inline:0}}

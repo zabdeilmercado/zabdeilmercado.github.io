@@ -8,6 +8,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
   if (!canvas || !context) return;
 
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  const MOTION_SPEED = 1.60;
   const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%&*'.split('');
   let width = 0, height = 0, scale = 1, frame = 0, previous = 0;
   let nodes = [], beams = [], pointer = null;
@@ -43,7 +44,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
   }
 
   function render(time, advance = true) {
-    const delta = previous && advance ? Math.min((time - previous) / 16.667, 2) : 1;
+    const delta = (previous && advance ? Math.min((time - previous) / 16.667, 2) : 1) * MOTION_SPEED;
     previous = time;
     context.clearRect(0, 0, width, height);
 
