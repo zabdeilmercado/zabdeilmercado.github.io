@@ -1,5 +1,21 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Accessible project case studies use the native dialog element for focus,
+// Escape-key dismissal, and a clear return path to the triggering button.
+document.querySelectorAll('[data-case]').forEach(button => {
+  button.addEventListener('click', () => {
+    const dialog = document.getElementById(button.dataset.case);
+    if (dialog?.showModal) dialog.showModal();
+  });
+});
+
+document.querySelectorAll('.case-study').forEach(dialog => {
+  dialog.querySelector('[data-close]')?.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  });
+});
+
 // Site-wide code field inspired by ThreeUI's Particle Drift, implemented in
 // vanilla Canvas to preserve the portfolio's dependency-free architecture.
 (() => {
